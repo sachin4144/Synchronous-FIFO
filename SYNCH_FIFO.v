@@ -3,10 +3,10 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10.07.2025 19:31:44
+// Create Date: 10.07.2025
 // Design Name: 
 // Module Name: SYNCH_FIFO
-// Project Name: 
+// Project Name: Parameterizable FIFO
 // Target Devices: 
 // Tool Versions: 
 // Description: 
