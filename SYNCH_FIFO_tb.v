@@ -3,10 +3,10 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10.07.2025 19:33:34
+// Create Date: 10.07.2025
 // Design Name: 
 // Module Name: SYNCH_FIFO_tb
-// Project Name: 
+// Project Name: Parameterizable FIFO
 // Target Devices: 
 // Tool Versions: 
 // Description: 
@@ -36,7 +36,7 @@ module qs_fifo_tb;
   wire full_o;
   wire empty_o;
 
-  // Instantiate the FIFO (explicit port mapping for Verilog)
+  // Instantiating the FIFO
   qs_fifo #(.DATA_W(DATA_W), .DEPTH(DEPTH)) FIFO (
     .clk(clk),
     .reset(reset),
@@ -51,14 +51,13 @@ module qs_fifo_tb;
   // Clock generation: 10ns period
   initial clk = 0;
   always #5 clk = ~clk;
-
-  // Stimulus
+  
   initial begin
     reset = 1'b1;
     push_i = 1'b0;
     pop_i = 1'b0;
     push_data_i = 8'h00;
-    // Hold reset for two cycles
+    
     repeat (2) @(posedge clk);
     reset = 1'b0;
 
@@ -84,13 +83,12 @@ module qs_fifo_tb;
     @(posedge clk);
     pop_i = 1'b0;
 
-    // Wait two more cycles
+    
     repeat (2) @(posedge clk);
 
     $finish;
   end
-
-  // Dump VCD waveform
+  
   initial begin
     $dumpfile("qs_fifo.vcd");
     $dumpvars(2, qs_fifo_tb);
