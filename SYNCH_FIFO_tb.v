@@ -84,10 +84,4 @@ module qs_fifo_tb;
         $finish;
     end
 
-    
-    initial begin
-        $dumpfile("qs_fifo_tb.vcd");
-        $dumpvars(0, qs_fifo_tb);
-    end
-
 endmodule
